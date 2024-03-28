@@ -1,0 +1,7 @@
+name: MorphPlugin
+version: 1.0
+main: de.vmoon.morphplugin.MorphPlugin
+api-version: '1.20'
+authors: [VoidableMoon884]
+description: A Morph Plugin by VoidableMoon884
+website: https://morph.vmoon.de/
