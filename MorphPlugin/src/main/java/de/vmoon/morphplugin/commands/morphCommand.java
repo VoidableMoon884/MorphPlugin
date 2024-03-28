@@ -30,7 +30,7 @@ public class morphCommand implements CommandExecutor, TabCompleter {
 
         try {
             EntityType entityType = EntityType.valueOf(entityName);
-            this.currentEntity = entityType;
+            player.getWorld().spawnEntity(player.getLocation(), entityType); // Verwandlung in die ausgewählte Entität
             player.sendMessage("Du hast dich in " + entityType.name() + " verwandelt.");
         } catch (IllegalArgumentException e) {
             player.sendMessage("Ungültige Entität angegeben.");
