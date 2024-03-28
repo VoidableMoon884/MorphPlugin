@@ -1,9 +1,11 @@
 package de.vmoon.morphplugin.commands;
 
+import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
@@ -30,7 +32,10 @@ public class morphCommand implements CommandExecutor, TabCompleter {
 
         try {
             EntityType entityType = EntityType.valueOf(entityName);
-            player.getWorld().spawnEntity(player.getLocation(), entityType); // Verwandlung in die ausgewählte Entität
+            player.setGameMode(GameMode.SPECTATOR);
+            Entity entity = player.getWorld().spawnEntity(player.getLocation(), entityType);
+            player.setSpectatorTarget(entity);
+            player.setGameMode(GameMode.SURVIVAL);
             player.sendMessage("Du hast dich in " + entityType.name() + " verwandelt.");
         } catch (IllegalArgumentException e) {
             player.sendMessage("Ungültige Entität angegeben.");

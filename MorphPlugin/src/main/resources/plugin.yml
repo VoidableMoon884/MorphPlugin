@@ -1,5 +1,5 @@
 name: MorphPlugin
-version: 1.0.2
+version: 1.0.3
 main: de.vmoon.morphplugin.MorphPlugin
 api-version: '1.20'
 authors: [VoidableMoon884]
